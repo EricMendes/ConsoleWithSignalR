@@ -1,0 +1,49 @@
+{
+   // Use IntelliSense to find out which attributes exist for C# debugging
+   // Use hover for the description of the existing attributes
+   // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
+   "version": "0.2.0",
+   "configurations": [
+        {
+            "name": "Launch Console Hub",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "Build Console Hub",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/ConsoleHub/bin/Debug/netcoreapp3.1/ConsoleHub.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/ConsoleHub",
+            // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
+            "console": "externalTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Launch Console Client",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "Build Console Client",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/ConsoleClient/bin/Debug/netcoreapp3.1/ConsoleClient.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/ConsoleClient",
+            // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
+            "console": "externalTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Hub + Client",
+            "configurations": [
+                "Launch Console Hub",
+                "Launch Console Client",
+            ]
+        }
+    ]
+}
